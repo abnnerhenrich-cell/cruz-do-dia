@@ -7,6 +7,7 @@
 <title>Cruz do Dia | Kelly Menezes JB</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -15,103 +16,133 @@
 }
 
 body{
+    background:#020817;
     min-height:100vh;
-    background:#030712;
     display:flex;
     justify-content:center;
     align-items:center;
     padding:20px;
-    color:white;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:#00b7ff;
+    filter:blur(180px);
+    opacity:.18;
+    z-index:-1;
 }
 
 .container{
     width:100%;
-    max-width:520px;
-    background:rgba(5,12,30,0.95);
+    max-width:550px;
+    background:rgba(5,10,25,.95);
     border:2px solid #00b7ff;
-    border-radius:25px;
+    border-radius:30px;
     padding:30px;
-    text-align:center;
-    box-shadow:0 0 20px #00b7ff, 0 0 50px rgba(0,183,255,.4);
+    box-shadow:
+    0 0 20px #00b7ff,
+    0 0 50px rgba(0,183,255,.35);
 }
 
 h1{
-    font-size:38px;
+    text-align:center;
     color:white;
-    text-shadow:0 0 10px #00b7ff, 0 0 25px #00b7ff;
+    font-size:48px;
+    margin-bottom:10px;
+    text-shadow:
+    0 0 10px #00b7ff,
+    0 0 25px #00b7ff;
 }
 
 .sub{
-    color:#5ed7ff;
-    margin:10px 0 25px;
-    font-size:16px;
+    text-align:center;
+    color:#71d8ff;
+    font-size:20px;
+    margin-bottom:30px;
+    font-family:cursive;
     text-shadow:0 0 10px #00b7ff;
+}
+
+.input-group{
+    margin-bottom:18px;
 }
 
 label{
     display:block;
-    text-align:left;
-    margin:15px 0 6px;
+    color:white;
+    margin-bottom:8px;
     font-weight:bold;
+    font-size:16px;
 }
 
 input{
     width:100%;
-    padding:14px;
-    border-radius:12px;
+    padding:15px;
+    border-radius:15px;
     border:2px solid #00b7ff;
-    background:#050b1f;
+    background:#071022;
     color:white;
-    font-size:20px;
+    font-size:22px;
     outline:none;
-    box-shadow:0 0 12px rgba(0,183,255,.5);
+    box-shadow:0 0 15px rgba(0,183,255,.3);
 }
 
 button{
     width:100%;
-    margin-top:25px;
-    padding:16px;
+    margin-top:20px;
+    padding:18px;
     border:none;
-    border-radius:15px;
+    border-radius:18px;
     background:#00b7ff;
     color:white;
-    font-size:20px;
+    font-size:22px;
     font-weight:bold;
     cursor:pointer;
-    box-shadow:0 0 15px #00b7ff, 0 0 35px rgba(0,183,255,.7);
+    transition:.3s;
+    box-shadow:
+    0 0 20px #00b7ff,
+    0 0 45px rgba(0,183,255,.7);
 }
 
 button:hover{
-    transform:scale(1.03);
+    transform:scale(1.02);
 }
 
 .resultado{
     display:none;
-    margin-top:30px;
+    margin-top:35px;
 }
 
 .tituloResultado{
     color:#00d9ff;
-    margin:25px 0 15px;
-    font-size:20px;
-    text-shadow:0 0 10px #00b7ff;
+    font-size:22px;
+    text-align:center;
+    margin-bottom:20px;
+    text-shadow:
+    0 0 10px #00b7ff;
 }
 
 .contas{
-    background:#060d24;
+    background:#050d1f;
     border:2px solid #00b7ff;
-    border-radius:18px;
-    padding:15px;
-    box-shadow:0 0 20px rgba(0,183,255,.3);
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 0 20px rgba(0,183,255,.25);
 }
 
 .conta-item{
     display:flex;
     justify-content:center;
+    align-items:center;
     gap:10px;
-    font-size:24px;
-    margin:12px 0;
     flex-wrap:wrap;
+    color:white;
+    font-size:28px;
+    margin:15px 0;
 }
 
 .resultado-final{
@@ -122,82 +153,107 @@ button:hover{
 
 .cruz-container{
     position:relative;
-    height:330px;
-    background:#060d24;
+    margin-top:25px;
+    height:350px;
+    border-radius:25px;
     border:2px solid #00b7ff;
-    border-radius:20px;
-    margin-top:15px;
-    box-shadow:0 0 20px rgba(0,183,255,.4);
+    background:#050d1f;
+    overflow:hidden;
+    box-shadow:0 0 25px rgba(0,183,255,.25);
 }
 
 .linha-horizontal{
     position:absolute;
-    top:50%;
-    left:0;
     width:100%;
     height:3px;
     background:#00b7ff;
+    top:50%;
+    left:0;
+    transform:translateY(-50%);
     box-shadow:0 0 15px #00b7ff;
 }
 
 .linha-vertical{
     position:absolute;
-    top:0;
-    left:50%;
     width:3px;
     height:100%;
     background:#00b7ff;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
     box-shadow:0 0 15px #00b7ff;
 }
 
 .numero{
-    position:absolute;
-    width:70px;
-    height:70px;
-    border-radius:15px;
-    background:#081633;
+    width:75px;
+    height:75px;
+    border-radius:18px;
     border:2px solid #00b7ff;
+    background:#081633;
+    position:absolute;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:36px;
-    font-weight:bold;
     color:white;
-    text-shadow:0 0 10px #fff;
-    box-shadow:0 0 15px #00b7ff;
+    font-size:40px;
+    font-weight:bold;
+    text-shadow:0 0 10px white;
+    box-shadow:
+    0 0 15px #00b7ff,
+    0 0 25px rgba(0,183,255,.5);
 }
 
 .cruz-topo{
-    top:25px;
+    top:20px;
     left:50%;
     transform:translateX(-50%);
 }
 
 .cruz-esquerda{
+    left:20px;
     top:50%;
-    left:25px;
     transform:translateY(-50%);
 }
 
 .cruz-direita{
+    right:20px;
     top:50%;
-    right:25px;
     transform:translateY(-50%);
 }
 
 .cruz-baixo{
-    bottom:25px;
+    bottom:20px;
     left:50%;
     transform:translateX(-50%);
 }
 
 .assinatura{
-    margin-top:25px;
-    color:#5ed7ff;
-    font-size:18px;
+    margin-top:30px;
+    text-align:center;
+    color:#71d8ff;
+    font-size:24px;
     font-family:cursive;
     text-shadow:0 0 10px #00b7ff;
 }
+
+@media(max-width:600px){
+
+    h1{
+        font-size:40px;
+    }
+
+    .conta-item{
+        font-size:22px;
+    }
+
+    .numero{
+        width:65px;
+        height:65px;
+        font-size:34px;
+    }
+
+}
+
 </style>
 </head>
 
@@ -206,23 +262,36 @@ button:hover{
 <div class="container">
 
     <h1>CRUZ DO DIA</h1>
-    <p class="sub">Calculadora Oficial • Kelly Menezes JB</p>
 
-    <label>Digite o Dia</label>
-    <input type="number" id="dia" placeholder="">
+    <div class="sub">
+        Kelly Menezes JB
+    </div>
 
-    <label>Digite o Mês</label>
-    <input type="number" id="mes" placeholder="">
+    <div class="input-group">
+        <label>DIA</label>
+        <input type="number" id="dia" placeholder="Ex: 26">
+    </div>
 
-    <button onclick="calcularCruz()">CALCULAR CRUZ</button>
+    <div class="input-group">
+        <label>MÊS</label>
+        <input type="number" id="mes" placeholder="Ex: 05">
+    </div>
+
+    <button onclick="calcularCruz()">
+        CALCULAR CRUZ
+    </button>
 
     <div class="resultado" id="resultado">
 
-        <h2 class="tituloResultado">✦ CONTA PARA CHEGARMOS NA CRUZ DO DIA ✦</h2>
+        <h2 class="tituloResultado">
+            ✦ CONTA PARA CHEGARMOS NA CRUZ DO DIA ✦
+        </h2>
 
         <div class="contas" id="contas"></div>
 
-        <h2 class="tituloResultado">✦ PALPITE DA CRUZ DO DIA ✦</h2>
+        <h2 class="tituloResultado" style="margin-top:30px;">
+            ✦ PALPITE DA CRUZ DO DIA ✦
+        </h2>
 
         <div class="cruz-container">
 
@@ -238,17 +307,13 @@ button:hover{
 
     </div>
 
-    <div class="assinatura">✦ Kelly Menezes JB ✦</div>
+    <div class="assinatura">
+        ✦ Kelly Menezes JB ✦
+    </div>
 
 </div>
 
 <script>
-function simplificar(valor){
-    while(valor > 9){
-        valor -= 10;
-    }
-    return valor;
-}
 
 function calcularCruz(){
 
@@ -260,30 +325,56 @@ function calcularCruz(){
         return;
     }
 
+    // MÉTODO NOVO
+
     let soma1 = dia + 3;
-    let soma2 = dia + 6;
-    let soma3 = dia + 9;
-    let soma4 = dia + 12;
+    let soma2 = soma1 + 3;
+    let soma3 = soma2 + 3;
+    let soma4 = soma3 + 3;
 
-    let n1 = simplificar(soma1);
-    let n2 = simplificar(soma2);
-    let n3 = simplificar(soma3);
-    let n4 = simplificar(soma4);
+    // PEGA APENAS O ÚLTIMO DIGITO
 
-    document.getElementById("n1").innerText = n1;
-    document.getElementById("n2").innerText = n2;
-    document.getElementById("n3").innerText = n3;
-    document.getElementById("n4").innerText = n4;
+    let n1 = soma1 % 10;
+    let n2 = soma2 % 10;
+    let n3 = soma3 % 10;
+    let n4 = soma4 % 10;
+
+    // CRUZ
+
+    document.getElementById("n1").innerText = n1; // topo
+    document.getElementById("n2").innerText = n3; // esquerda
+    document.getElementById("n3").innerText = n4; // direita
+    document.getElementById("n4").innerText = n2; // baixo
+
+    // CONTAS
 
     document.getElementById("contas").innerHTML = `
-        <div class="conta-item">${dia} + 3 = ${soma1} > <span class="resultado-final">${n1}</span></div>
-        <div class="conta-item">${dia} + 6 = ${soma2} > <span class="resultado-final">${n2}</span></div>
-        <div class="conta-item">${dia} + 9 = ${soma3} > <span class="resultado-final">${n3}</span></div>
-        <div class="conta-item">${dia} + 12 = ${soma4} > <span class="resultado-final">${n4}</span></div>
+
+        <div class="conta-item">
+            ${dia} + 3 = ${soma1}
+        </div>
+
+        <div class="conta-item">
+            ${soma1} + 3 = ${soma2}
+        </div>
+
+        <div class="conta-item">
+            ${soma2} + 3 = ${soma3}
+        </div>
+
+        <div class="conta-item">
+            ${soma3} + 3 = ${soma4}
+        </div>
+
+        <div class="conta-item resultado-final" style="margin-top:25px;">
+            Últimos dígitos: ${n1}, ${n2}, ${n3}, ${n4}
+        </div>
+
     `;
 
     document.getElementById("resultado").style.display = "block";
 }
+
 </script>
 
 </body>
