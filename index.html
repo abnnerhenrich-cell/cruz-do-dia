@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Cruz do Dia | Kelly Menezes JB</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#050816;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    overflow:hidden;
+}
+
+/* Fundo neon */
+body::before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    background:#00a2ff;
+    filter:blur(180px);
+    opacity:0.25;
+    z-index:-1;
+}
+
+.container{
+    width:100%;
+    max-width:500px;
+    background:rgba(10,15,35,0.9);
+    border:2px solid #00b7ff;
+    border-radius:25px;
+    padding:35px;
+    box-shadow:
+        0 0 15px #00b7ff,
+        0 0 40px rgba(0,183,255,0.5);
+    text-align:center;
+}
+
+h1{
+    color:#fff;
+    font-size:38px;
+    margin-bottom:10px;
+    text-shadow:
+        0 0 10px #00b7ff,
+        0 0 20px #00b7ff;
+}
+
+.sub{
+    color:#8edcff;
+    margin-bottom:30px;
+    font-size:15px;
+}
+
+.input-group{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+label{
+    color:#fff;
+    text-align:left;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#101a3b;
+    color:#fff;
+    font-size:18px;
+    outline:none;
+    border:2px solid #00b7ff;
+    box-shadow:0 0 10px rgba(0,183,255,0.4);
+}
+
+button{
+    margin-top:25px;
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:15px;
+    background:#00b7ff;
+    color:#fff;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:
+        0 0 15px #00b7ff,
+        0 0 35px rgba(0,183,255,0.7);
+}
+
+button:hover{
+    transform:scale(1.03);
+    background:#0099e6;
+}
+
+.resultado{
+    margin-top:35px;
+    padding:25px;
+    border-radius:20px;
+    background:#081125;
+    border:2px solid #00b7ff;
+    display:none;
+    animation:aparecer 0.4s ease;
+}
+
+.resultado h2{
+    color:#00b7ff;
+    margin-bottom:20px;
+    text-shadow:0 0 10px #00b7ff;
+}
+
+.cruz{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.numero{
+    width:70px;
+    height:70px;
+    border-radius:15px;
+    background:#00b7ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:35px;
+    font-weight:bold;
+    color:#fff;
+    box-shadow:
+        0 0 15px #00b7ff,
+        0 0 30px rgba(0,183,255,0.8);
+}
+
+.assinatura{
+    margin-top:30px;
+    color:#fff;
+    font-size:14px;
+    opacity:0.8;
+    text-shadow:0 0 8px #00b7ff;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>CRUZ DO DIA</h1>
+
+    <p class="sub">
+        Calculadora Oficial • Kelly Menezes JB
+    </p>
+
+    <div class="input-group">
+
+        <div>
+            <label>Digite o Dia</label>
+            <input type="number" id="dia" placeholder="Ex: 13">
+        </div>
+
+        <div>
+            <label>Digite o Mês</label>
+            <input type="number" id="mes" placeholder="Ex: 05">
+        </div>
+
+    </div>
+
+    <button onclick="calcularCruz()">
+        CALCULAR CRUZ
+    </button>
+
+    <div class="resultado" id="resultado">
+
+        <h2 id="dataEscolhida"></h2>
+
+        <div class="cruz">
+            <div class="numero" id="n1">0</div>
+            <div class="numero" id="n2">0</div>
+            <div class="numero" id="n3">0</div>
+            <div class="numero" id="n4">0</div>
+        </div>
+
+    </div>
+
+    <div class="assinatura">
+        ✦ Kelly Menezes JB ✦
+    </div>
+
+</div>
+
+<script>
+function simplificar(valor){
+    while(valor > 9){
+        valor -= 10;
+    }
+    return valor;
+}
+
+function calcularCruz(){
+
+    let dia = parseInt(document.getElementById("dia").value);
+    let mes = parseInt(document.getElementById("mes").value);
+
+    if(isNaN(dia) || isNaN(mes)){
+        alert("Preencha o dia e o mês!");
+        return;
+    }
+
+    let n1 = simplificar(dia + 3);
+    let n2 = simplificar(dia + 6);
+    let n3 = simplificar(dia + 9);
+    let n4 = simplificar(dia + 12);
+
+    document.getElementById("n1").innerText = n1;
+    document.getElementById("n2").innerText = n2;
+    document.getElementById("n3").innerText = n3;
+    document.getElementById("n4").innerText = n4;
+
+    document.getElementById("dataEscolhida").innerText =
+        "Data: " + dia + "/" + mes;
+
+    document.getElementById("resultado").style.display = "block";
+}
+</script>
+
+</body>
+</html>
