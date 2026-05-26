@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Cruz do Dia | Kelly Menezes JB</title>
 
@@ -11,163 +11,192 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-    background:#050816;
     min-height:100vh;
+    background:#030712;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     padding:20px;
-    overflow:hidden;
-}
-
-/* Fundo neon */
-body::before{
-    content:"";
-    position:absolute;
-    width:600px;
-    height:600px;
-    background:#00a2ff;
-    filter:blur(180px);
-    opacity:0.25;
-    z-index:-1;
+    color:white;
 }
 
 .container{
     width:100%;
-    max-width:500px;
-    background:rgba(10,15,35,0.9);
+    max-width:520px;
+    background:rgba(5,12,30,0.95);
     border:2px solid #00b7ff;
     border-radius:25px;
-    padding:35px;
-    box-shadow:
-        0 0 15px #00b7ff,
-        0 0 40px rgba(0,183,255,0.5);
+    padding:30px;
     text-align:center;
+    box-shadow:0 0 20px #00b7ff, 0 0 50px rgba(0,183,255,.4);
 }
 
 h1{
-    color:#fff;
     font-size:38px;
-    margin-bottom:10px;
-    text-shadow:
-        0 0 10px #00b7ff,
-        0 0 20px #00b7ff;
+    color:white;
+    text-shadow:0 0 10px #00b7ff, 0 0 25px #00b7ff;
 }
 
 .sub{
-    color:#8edcff;
-    margin-bottom:30px;
-    font-size:15px;
-}
-
-.input-group{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
+    color:#5ed7ff;
+    margin:10px 0 25px;
+    font-size:16px;
+    text-shadow:0 0 10px #00b7ff;
 }
 
 label{
-    color:#fff;
+    display:block;
     text-align:left;
+    margin:15px 0 6px;
     font-weight:bold;
-    margin-bottom:5px;
 }
 
 input{
     width:100%;
-    padding:15px;
-    border:none;
+    padding:14px;
     border-radius:12px;
-    background:#101a3b;
-    color:#fff;
-    font-size:18px;
-    outline:none;
     border:2px solid #00b7ff;
-    box-shadow:0 0 10px rgba(0,183,255,0.4);
+    background:#050b1f;
+    color:white;
+    font-size:20px;
+    outline:none;
+    box-shadow:0 0 12px rgba(0,183,255,.5);
 }
 
 button{
-    margin-top:25px;
     width:100%;
+    margin-top:25px;
     padding:16px;
     border:none;
     border-radius:15px;
     background:#00b7ff;
-    color:#fff;
-    font-size:18px;
+    color:white;
+    font-size:20px;
     font-weight:bold;
     cursor:pointer;
-    transition:0.3s;
-    box-shadow:
-        0 0 15px #00b7ff,
-        0 0 35px rgba(0,183,255,0.7);
+    box-shadow:0 0 15px #00b7ff, 0 0 35px rgba(0,183,255,.7);
 }
 
 button:hover{
     transform:scale(1.03);
-    background:#0099e6;
 }
 
 .resultado{
-    margin-top:35px;
-    padding:25px;
-    border-radius:20px;
-    background:#081125;
-    border:2px solid #00b7ff;
     display:none;
-    animation:aparecer 0.4s ease;
+    margin-top:30px;
 }
 
-.resultado h2{
-    color:#00b7ff;
-    margin-bottom:20px;
+.tituloResultado{
+    color:#00d9ff;
+    margin:25px 0 15px;
+    font-size:20px;
     text-shadow:0 0 10px #00b7ff;
 }
 
-.cruz{
+.contas{
+    background:#060d24;
+    border:2px solid #00b7ff;
+    border-radius:18px;
+    padding:15px;
+    box-shadow:0 0 20px rgba(0,183,255,.3);
+}
+
+.conta-item{
     display:flex;
     justify-content:center;
-    gap:15px;
+    gap:10px;
+    font-size:24px;
+    margin:12px 0;
     flex-wrap:wrap;
 }
 
+.resultado-final{
+    color:#00b7ff;
+    font-weight:bold;
+    text-shadow:0 0 10px #00b7ff;
+}
+
+.cruz-container{
+    position:relative;
+    height:330px;
+    background:#060d24;
+    border:2px solid #00b7ff;
+    border-radius:20px;
+    margin-top:15px;
+    box-shadow:0 0 20px rgba(0,183,255,.4);
+}
+
+.linha-horizontal{
+    position:absolute;
+    top:50%;
+    left:0;
+    width:100%;
+    height:3px;
+    background:#00b7ff;
+    box-shadow:0 0 15px #00b7ff;
+}
+
+.linha-vertical{
+    position:absolute;
+    top:0;
+    left:50%;
+    width:3px;
+    height:100%;
+    background:#00b7ff;
+    box-shadow:0 0 15px #00b7ff;
+}
+
 .numero{
+    position:absolute;
     width:70px;
     height:70px;
     border-radius:15px;
-    background:#00b7ff;
+    background:#081633;
+    border:2px solid #00b7ff;
     display:flex;
-    align-items:center;
     justify-content:center;
-    font-size:35px;
+    align-items:center;
+    font-size:36px;
     font-weight:bold;
-    color:#fff;
-    box-shadow:
-        0 0 15px #00b7ff,
-        0 0 30px rgba(0,183,255,0.8);
+    color:white;
+    text-shadow:0 0 10px #fff;
+    box-shadow:0 0 15px #00b7ff;
+}
+
+.cruz-topo{
+    top:25px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.cruz-esquerda{
+    top:50%;
+    left:25px;
+    transform:translateY(-50%);
+}
+
+.cruz-direita{
+    top:50%;
+    right:25px;
+    transform:translateY(-50%);
+}
+
+.cruz-baixo{
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
 }
 
 .assinatura{
-    margin-top:30px;
-    color:#fff;
-    font-size:14px;
-    opacity:0.8;
-    text-shadow:0 0 8px #00b7ff;
-}
-
-@keyframes aparecer{
-    from{
-        opacity:0;
-        transform:translateY(10px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    margin-top:25px;
+    color:#5ed7ff;
+    font-size:18px;
+    font-family:cursive;
+    text-shadow:0 0 10px #00b7ff;
 }
 </style>
 </head>
@@ -177,45 +206,39 @@ button:hover{
 <div class="container">
 
     <h1>CRUZ DO DIA</h1>
+    <p class="sub">Calculadora Oficial • Kelly Menezes JB</p>
 
-    <p class="sub">
-        Calculadora Oficial • Kelly Menezes JB
-    </p>
+    <label>Digite o Dia</label>
+    <input type="number" id="dia" placeholder="Ex: 26">
 
-    <div class="input-group">
+    <label>Digite o Mês</label>
+    <input type="number" id="mes" placeholder="Ex: 05">
 
-        <div>
-            <label>Digite o Dia</label>
-            <input type="number" id="dia" placeholder="Ex: 13">
-        </div>
-
-        <div>
-            <label>Digite o Mês</label>
-            <input type="number" id="mes" placeholder="Ex: 05">
-        </div>
-
-    </div>
-
-    <button onclick="calcularCruz()">
-        CALCULAR CRUZ
-    </button>
+    <button onclick="calcularCruz()">CALCULAR CRUZ</button>
 
     <div class="resultado" id="resultado">
 
-        <h2 id="dataEscolhida"></h2>
+        <h2 class="tituloResultado">✦ CONTA PARA CHEGARMOS NA CRUZ DO DIA ✦</h2>
 
-        <div class="cruz">
-            <div class="numero" id="n1">0</div>
-            <div class="numero" id="n2">0</div>
-            <div class="numero" id="n3">0</div>
-            <div class="numero" id="n4">0</div>
+        <div class="contas" id="contas"></div>
+
+        <h2 class="tituloResultado">✦ PALPITE DA CRUZ DO DIA ✦</h2>
+
+        <div class="cruz-container">
+
+            <div class="linha-horizontal"></div>
+            <div class="linha-vertical"></div>
+
+            <div class="numero cruz-topo" id="n1">0</div>
+            <div class="numero cruz-esquerda" id="n2">0</div>
+            <div class="numero cruz-direita" id="n3">0</div>
+            <div class="numero cruz-baixo" id="n4">0</div>
+
         </div>
 
     </div>
 
-    <div class="assinatura">
-        ✦ Kelly Menezes JB ✦
-    </div>
+    <div class="assinatura">✦ Kelly Menezes JB ✦</div>
 
 </div>
 
@@ -237,18 +260,27 @@ function calcularCruz(){
         return;
     }
 
-    let n1 = simplificar(dia + 3);
-    let n2 = simplificar(dia + 6);
-    let n3 = simplificar(dia + 9);
-    let n4 = simplificar(dia + 12);
+    let soma1 = dia + 3;
+    let soma2 = dia + 6;
+    let soma3 = dia + 9;
+    let soma4 = dia + 12;
+
+    let n1 = simplificar(soma1);
+    let n2 = simplificar(soma2);
+    let n3 = simplificar(soma3);
+    let n4 = simplificar(soma4);
 
     document.getElementById("n1").innerText = n1;
     document.getElementById("n2").innerText = n2;
     document.getElementById("n3").innerText = n3;
     document.getElementById("n4").innerText = n4;
 
-    document.getElementById("dataEscolhida").innerText =
-        "Data: " + dia + "/" + mes;
+    document.getElementById("contas").innerHTML = `
+        <div class="conta-item">${dia} + 3 = ${soma1} > <span class="resultado-final">${n1}</span></div>
+        <div class="conta-item">${dia} + 6 = ${soma2} > <span class="resultado-final">${n2}</span></div>
+        <div class="conta-item">${dia} + 9 = ${soma3} > <span class="resultado-final">${n3}</span></div>
+        <div class="conta-item">${dia} + 12 = ${soma4} > <span class="resultado-final">${n4}</span></div>
+    `;
 
     document.getElementById("resultado").style.display = "block";
 }
